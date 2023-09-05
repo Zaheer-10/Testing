@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+View Paper
+{% endblock %}
+{% block details %}
+<header class="site-header d-flex flex-column justify-content-center align-items-center">
+    <h1 class="mb-4 text-center text-white">Take a Look at the Paper🔍</h1>
+</header>   
+<div class="content-container text-center">
+    <h3><pre class="section-title text-dark mt-3 font-size-large"><b>{{paper.title}}🔖</b></pre></h3>
+<div class="text-center accordion-body mt-3">
+    <object data="data:application/pdf;base64,{{ pdf_base64 }}" width="80%" height="800" type="application/pdf">
+    </object>
+</div>
+</div>
+<div class="alert alert-warning text-center mt-3" role="alert" style="width: 100%;">
+  <strong>Attention:</strong> If the PDF is not visible, please verify your internet connection or <a class="text-danger" href="https://arxiv.org/pdf/{{ paper.ids }}.pdf" class="alert-link"> click here</a> to access the original paper.
+</div>
+
+{% endblock %}
